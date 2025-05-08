@@ -1,44 +1,30 @@
-# IPL Data Analysis using PySpark, AWS S3, and Databricks
-This project focuses on end-to-end data engineering and analysis of Indian Premier League (IPL) data using PySpark on Databricks, with data stored on AWS S3. The goal is to extract meaningful insights from match and player performance data using scalable big data tools and practices.
+# 📌 Overview
+This project focuses on analyzing bowling performance during the Powerplay overs (Overs 1–6) in the Indian Premier League (IPL) by leveraging PySpark and Spark SQL in a distributed computing environment on Databricks, with data stored in AWS S3. By processing millions of records efficiently, the project uncovers key patterns and identifies the most effective bowlers in the early phase of the game.
 
-# 🔧 Tools & Technologies Used
-PySpark: For scalable data processing and transformations
+# 🎯 Objectives
+• To identify bowlers with the best economy and wicket-taking ability during Powerplay overs.
+• To leverage PySpark transformations and SQL queries for scalable and fast data analysis.
+• To join and transform raw IPL datasets from multiple sources for a comprehensive view.
+• To create a data-driven approach that could assist team analysts, selectors, and commentators in understanding early-game bowling trends.
 
-Databricks: Interactive workspace for running PySpark notebooks
+# 💡 Key Insights
+• Economical bowlers during Powerplay overs can significantly restrict a team’s scoring potential and increase pressure early on.
+• Wicket-taking ability in the first six overs often dictates match momentum and team advantage.
+• Certain bowlers consistently maintain a low average runs per ball while also picking crucial early wickets, proving their value as Powerplay specialists.
 
-AWS S3: Storage layer for IPL datasets (CSV files)
+# 📊 Impact
+• Delivered high-performance analytics using PySpark on Databricks, reducing processing time on large IPL datasets.
+• Enabled role-based evaluation of bowlers for better team formation and strategic planning.
+• Demonstrated how big data tools can provide valuable sports insights by combining performance metrics and historical trends.
+• Project serves as a template for sports analytics, integrating advanced SQL logic with distributed processing.
 
-Spark SQL: For structured querying and aggregations
+# 🔍 Key Findings
+• Extracted and filtered over-level data (over_id BETWEEN 1 AND 6) to isolate Powerplay deliveries.
+• Joined ball_by_ball, player_match, and player datasets to map bowler IDs to names.
+• Calculated:
+  Average Runs Conceded per Ball using ROUND(AVG(runs_scored), 2)
+  Total Wickets in Powerplay using conditional aggregation on bowler_wicket
+• Sorted results to highlight bowlers with both low economy rates and high wickets during Powerplay.
+• Discovered a set of bowlers who consistently outperformed others in the early overs — key players for T20 success.
 
-Matplotlib / Plotly (optional): For data visualization
-
-# 📌 Project Workflow
-Data Collection
-
-IPL datasets (match-level, ball-by-ball, player info) stored in AWS S3 buckets.
-
-ETL Process with PySpark
-
-Loaded raw CSV files from S3 using Spark.
-
-Cleaned and transformed datasets (e.g., renaming columns, handling nulls).
-
-Performed joins across tables for consolidated analysis.
-
-Exploratory Data Analysis
-
-Powerplay analysis: most economical bowlers
-
-Toss impact: correlation between toss winner and match winner
-
-Team and player performance over seasons
-
-Visualized insights using Spark SQL + optional Pandas/Plotly
-
-# 🔍 Key Insights
-Identified top-performing bowlers in powerplay overs based on average runs per ball and wicket count.
-
-Analyzed how toss outcomes influence match results.
-
-Aggregated team-wise performance metrics across seasons.
 
